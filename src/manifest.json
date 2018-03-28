@@ -2,17 +2,25 @@
   "compatibleVersion": 3,
   "bundleVersion": 1,
   "icon": "icon.png",
+  "author": "Pranu Sarna",
   "commands": [
     {
-      "name": "my-command",
+      "name": "All layers",
       "identifier": "my-command-identifier",
       "script": "./my-command.js"
+    },
+    {
+      "name":"Current layer",
+      "identifier": "current-layer-identifier",
+      "script": "./current-layer.js"
     }
   ],
   "menu": {
-    "title": "perfecto",
+    "title": "👌Perfecto",
     "items": [
-      "my-command-identifier"
+      "my-command-identifier",
+      "current-layer-identifier",
+      "document-identifier"
     ]
   }
 }

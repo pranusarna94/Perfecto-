@@ -2,34 +2,33 @@ var sketch = require('sketch/dom');
 var Rectangle = require('sketch/dom').Rectangle;
 var UI = require('sketch/ui');
 
+var Document = require('sketch/dom').Document
+
+
+
 
 export default function(context) 
 {
 
 	const document = sketch.fromNative(context.document);
 	const page = document.selectedPage;
+	const selection = document.selectedLayers;
 
-	UI.message("Perfecting your designs 💅")
-	
-	for(var i=0; i<page.layers.length; i++)
+	for(var j=0; j<selection.layers.length; j++)
 	{
+		var shapeRect = selection.layers[j].frame;
+		x = shapeRect.x;
+		y = shapeRect.y;
+		width = shapeRect.width;
+		height = shapeRect.height;
 
-		var foo = page.layers[i];
-
-		for(var j=0; j<foo.layers.length; j++)
-		{
-			var shapeRect = foo.layers[j].frame;
-			x = shapeRect.x;
-			y = shapeRect.y;
-			width = shapeRect.width;
-			height = shapeRect.height;
-
-			foo.layers[j].frame = perfecto(x,y, width, height);
-
-		}
+		selection.layers[j].frame = perfecto(x,y, width, height);
+		log(selection.layers[j].frame);
 	}
 
-	UI.message("Looks gorgeous! 💋")
+
+	
+	UI.message("Looks gorgeous! Perfecto! 👌")
 }
 
 
